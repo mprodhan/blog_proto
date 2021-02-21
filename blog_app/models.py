@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
 class Author(AbstractUser):
-    name = models.CharrField(max_length=30)
+    author = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name
@@ -12,7 +12,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=30)
     body = models.TextField()
     date = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author_name = models.ForeignKey(Author, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
