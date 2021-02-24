@@ -6,7 +6,7 @@ class Author(AbstractUser):
     author = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.name
+        return self.author
 
 class Blog(models.Model):
     title = models.CharField(max_length=30)

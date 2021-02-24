@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h1>Articles written by {{author}}</h1>
+<a href="{% url 'homepage' %}">Home</a>
+<a href="{% url 'blog' %}">Post another blog here</a>
+<a href="{% url 'logout' %}">Logout</a>
+
+{% for blog in blogs %}
+
+<h3>{{blog}}</h3>
+<p>{{blog.body}}</p>
+<p>Blog posted on {{blog.date}}</p>
+
+{% endfor %}
+
+{% endblock %}
