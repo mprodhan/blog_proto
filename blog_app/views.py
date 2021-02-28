@@ -18,25 +18,6 @@ def signupview(request):
     context = {'form': form}
     return render(request, html, context)
 
-
-# def signupview(request):
-#     html = "signup.html"
-#     form = SignUpForm(request.POST)
-#     if form.is_valid():
-#         user = form.save()
-#         user.refresh_from_db()
-#         user.author.author = form.cleaned_data.get("author")
-#         user.save()
-#         username = form.cleaned_data("username")
-#         password = form.cleaned_data("password1")
-#         # user = authenticate(username=username, password=password)
-#         login(request, user)
-#         return HttpResponseRedirect(reverse('login'))
-#     else:
-#         form = SignUpForm()
-#     context = {'form': form}
-#     return render(request, html, context)
-
 def loginview(request):
     html = "login.html"
     if request.method == "POST":
@@ -89,10 +70,6 @@ def author_detail(request, id):
     html = "author.html"
     author = Author.objects.get(id=id)
     author = request.user
-    # author = request.user
-    # author.save()
-    # if request.user is not author:
-    #     return HttpResponse("You can't view this page!")
     blogs = Blog.objects.filter(author_name=author)
     context = {'author': author, 'blogs': blogs}
     return render(request, html, context)
