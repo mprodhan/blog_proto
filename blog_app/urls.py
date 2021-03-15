@@ -8,5 +8,5 @@ urlpatterns = [
 
     path('', views.index, name='homepage'),
     path('blog/', views.bloginsert, name='blog'),
-    path('author/<int:id>/', views.author_detail, name='author')
+    path('author/<str:username>/', views.author_detail, name='author')
 ]
