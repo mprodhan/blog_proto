@@ -6,20 +6,15 @@
     <h1>Please <a href="{% url 'signup' %}">Sign Up</a>
         to start blogging or <a href="{% url 'login' %}">log in</a></h1>
 {% else %}
-    <h1>Welcome {{request.user}}
+    <h1>Welcome <a href="/author/{{user.username}}/">{{request.user}}</a>
         <a href="{% url 'logout' %}">Log Out</a></h1>
         <p>Please enter your <a href="{% url 'blog' %}">blog here</a></p>
 {% endif %}
 
-{% comment %}
-<h1><a href="{% url 'author' author.id %}">{{user.username}}</a>Log</h1>
-{% endcomment %}
-
-
 
 {% for blog in data %}
-    
-    <h1>{{blog.title}}</h1> 
+
+    <h1>{{blog.title}}</h1>
     <p>by {{blog.author_name}}</p>
     <p>{{blog.body}}</p>
     Posted on {{blog.date}}

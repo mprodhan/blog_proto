@@ -66,9 +66,9 @@ def bloginsert(request):
     return render(request, html, context)
 
 @login_required
-def author_detail(request, id):
+def author_detail(request, username):
     html = "author.html"
-    author = Author.objects.get(id=id)
+    author = Author.objects.get(username=username)
     author = request.user
     blogs = Blog.objects.filter(author_name=author)
     context = {'author': author, 'blogs': blogs}
