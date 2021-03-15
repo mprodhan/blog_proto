@@ -8,5 +8,6 @@ urlpatterns = [
 
     path('', views.index, name='homepage'),
     path('blog/', views.bloginsert, name='blog'),
+    # Check Hyperlink on base.html
     path('author/<str:username>/', views.author_detail, name='author')
 ]
