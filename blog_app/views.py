@@ -51,13 +51,14 @@ def index(request):
 def bloginsert(request):
     html = "blog.html"
     if request.method == "POST":
-        form = BlogForm(request.POST)
+        form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
             Blog.objects.create(
                 title=data['title'],
                 body=data['body'],
-                author_name=data['author']
+                author_name=data['author'],
+                image=data['image']
             )
             return HttpResponseRedirect(reverse('homepage'))
     else:

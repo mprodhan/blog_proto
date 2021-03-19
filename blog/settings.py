@@ -64,6 +64,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Adding media template processor,
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -120,5 +122,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join((BASE_DIR), 'static')]
+# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles_cdn')
+
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join((BASE_DIR), 'mediafiles')
 
 AUTH_USER_MODEL = 'blog_app.Author'
